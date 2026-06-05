@@ -1,0 +1,160 @@
+<div class="pagina">
+  <header class="cabecalho">
+    <h1>📚 Frameworks Front-End</h1>
+    <p>Comparativo entre Angular, Vue.js e React</p>
+  </header>
+
+  <section class="abas-container">
+    <div class="abas">
+      <button
+        type="button"
+        class="aba"
+        *ngFor="let fw of frameworks; let i = index"
+        [class.ativa]="frameworkAtivo === i"
+        [style.color]="frameworkAtivo === i ? fw.cor : '#4b5563'"
+        [style.border-bottom-color]="frameworkAtivo === i ? fw.cor : 'transparent'"
+        (click)="selecionarFramework(i)"
+      >
+        {{ fw.icone }} {{ fw.nome }}
+      </button>
+    </div>
+
+    <div
+      class="conteudo"
+      *ngFor="let fw of frameworks; let i = index"
+    >
+      <article
+        *ngIf="frameworkAtivo === i"
+        class="framework-card"
+      >
+        <div class="framework-header" [style.border-left-color]="fw.cor">
+          <div class="framework-icone">{{ fw.icone }}</div>
+
+          <div>
+            <h2 [style.color]="fw.cor">{{ fw.nome }}</h2>
+
+            <div class="badges">
+              <span>🏢 {{ fw.criador }}</span>
+              <span>📅 {{ fw.lancamento }}</span>
+              <span>💻 {{ fw.linguagem }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bloco">
+          <h3>Sobre</h3>
+          <p>{{ fw.descricao }}</p>
+        </div>
+
+        <div class="comparativo">
+          <div class="lista positiva">
+            <h3>✅ Pontos fortes</h3>
+
+            <ul>
+              <li *ngFor="let ponto of fw.pontosFortes">
+                {{ ponto }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="lista negativa">
+            <h3>⚠️ Pontos fracos</h3>
+
+            <ul>
+              <li *ngFor="let ponto of fw.pontosFracos">
+                {{ ponto }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bloco">
+          <h3>🎯 Casos de uso</h3>
+
+          <div class="tags">
+            <span *ngFor="let caso of fw.casosUso">
+              {{ caso }}
+            </span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="tabela-card">
+    <h2>⚖️ Comparativo geral</h2>
+
+    <div class="tabela-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Critério</th>
+            <th>Angular</th>
+            <th>Vue</th>
+            <th>React</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Tipo</td>
+            <td>Framework completo</td>
+            <td>Framework progressivo</td>
+            <td>Biblioteca</td>
+          </tr>
+
+          <tr>
+            <td>Linguagem principal</td>
+            <td>TypeScript</td>
+            <td>JavaScript / TypeScript</td>
+            <td>JavaScript / JSX</td>
+          </tr>
+
+          <tr>
+            <td>Curva de aprendizado</td>
+            <td>Alta</td>
+            <td>Baixa</td>
+            <td>Média</td>
+          </tr>
+
+          <tr>
+            <td>Ideal para</td>
+            <td>Projetos grandes</td>
+            <td>Projetos simples e médios</td>
+            <td>Interfaces modernas</td>
+          </tr>
+
+          <tr>
+            <td>Comunidade</td>
+            <td>Grande</td>
+            <td>Média</td>
+            <td>Muito grande</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="angular-card">
+    <h2>🅰️ Angular em profundidade</h2>
+    <p class="subtexto">
+      Conceitos fundamentais do Angular com exemplos.
+    </p>
+
+    <div class="conceitos-grid">
+      <article
+        class="conceito"
+        *ngFor="let conceito of conceitosAngular"
+      >
+        <div class="conceito-header">
+          <span>{{ conceito.icone }}</span>
+          <h3>{{ conceito.titulo }}</h3>
+        </div>
+
+        <p>{{ conceito.descricao }}</p>
+
+        <pre><code>{{ conceito.codigo }}</code></pre>
+      </article>
+    </div>
+  </section>
+</div>

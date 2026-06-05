@@ -1,0 +1,15 @@
+.container-principal {
+  min-height: calc(100vh - 145px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.rodape {
+  background: #111827;
+  color: #d1d5db;
+  text-align: center;
+  padding: 24px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}

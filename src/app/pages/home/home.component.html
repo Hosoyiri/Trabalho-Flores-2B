@@ -1,0 +1,98 @@
+<section class="hero">
+  <div class="hero-conteudo">
+    <span class="tag">Programação Front-End</span>
+
+    <h1>{{ titulo }}</h1>
+
+    <p class="subtitulo">
+      {{ subtitulo }}
+    </p>
+
+    <p class="descricao">
+      Aplicação desenvolvida em Angular para apresentar conceitos importantes
+      do desenvolvimento front-end moderno, incluindo frameworks, componentes,
+      consumo de API e testes.
+    </p>
+
+    <div class="botoes">
+      <a routerLink="/frameworks" class="btn btn-primario">
+        Ver Frameworks
+      </a>
+
+      <a routerLink="/usuarios" class="btn btn-secundario">
+        Ver API HTTP
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <div class="janela-codigo">
+      <div class="bolinhas">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <pre><code>import &#123; Component &#125; from '&#64;angular/core';
+
+&#64;Component(&#123;
+  selector: 'app-root',
+  standalone: true
+&#125;)
+
+export class AppComponent &#123;
+  title = 'Angular';
+&#125;</code></pre>
+    </div>
+  </div>
+</section>
+
+<section class="secao">
+  <h2>Tópicos abordados</h2>
+  <p class="secao-texto">
+    Abaixo estão os principais conteúdos solicitados no trabalho.
+  </p>
+
+  <div class="grid-topicos">
+    <article
+      class="card-topico"
+      *ngFor="let topico of topicos"
+      [style.border-top-color]="topico.cor"
+    >
+      <div class="icone" [style.color]="topico.cor">
+        {{ topico.icone }}
+      </div>
+
+      <h3>{{ topico.titulo }}</h3>
+
+      <p>
+        {{ topico.descricao }}
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="info-trabalho">
+  <div class="info-card">
+    <h3>📌 Objetivo</h3>
+    <p>
+      Explorar tecnologias, metodologias e boas práticas de desenvolvimento
+      front-end, com foco em Angular e comparação com Vue e React.
+    </p>
+  </div>
+
+  <div class="info-card">
+    <h3>🛠️ Tecnologias</h3>
+    <p>
+      Angular, TypeScript, HTML, CSS, HttpClient, RxJS, Karma e Jasmine.
+    </p>
+  </div>
+
+  <div class="info-card">
+    <h3>📄 Requisitos atendidos</h3>
+    <p>
+      Aplicação Angular com mais de duas páginas, rotas, componentes,
+      consumo de API e exemplos de testes.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,51 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <span class="logo">⚡</span>
+    <span>Front-End ADS</span>
+  </div>
+
+  <button
+    type="button"
+    class="menu-toggle"
+    (click)="toggleMenu()"
+    [attr.aria-expanded]="menuAberto"
+    aria-label="Abrir menu"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul class="nav-links" [class.menu-ativo]="menuAberto">
+    <li>
+      <a
+        routerLink="/home"
+        routerLinkActive="link-ativo"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="fecharMenu()"
+      >
+        🏠 Home
+      </a>
+    </li>
+
+    <li>
+      <a
+        routerLink="/frameworks"
+        routerLinkActive="link-ativo"
+        (click)="fecharMenu()"
+      >
+        📚 Frameworks
+      </a>
+    </li>
+
+    <li>
+      <a
+        routerLink="/usuarios"
+        routerLinkActive="link-ativo"
+        (click)="fecharMenu()"
+      >
+        👥 API HTTP
+      </a>
+    </li>
+  </ul>
+</nav>

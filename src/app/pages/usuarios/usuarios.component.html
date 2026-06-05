@@ -1,0 +1,151 @@
+<div class="pagina">
+  <header class="cabecalho">
+    <h1>👥 Usuários via API</h1>
+    <p>Exemplo prático usando Angular HttpClient</p>
+  </header>
+
+  <section class="explicacao">
+    <h2>🌐 Angular HTTP Client</h2>
+
+    <p>
+      O <strong>HttpClient</strong> é usado para fazer requisições HTTP em APIs.
+      Nesta página, a aplicação busca dados reais da API pública
+      <code>JSONPlaceholder</code>.
+    </p>
+
+    <div class="endpoint">
+      GET https://jsonplaceholder.typicode.com/users
+    </div>
+  </section>
+
+  <section class="barra-busca">
+    <div class="input-area">
+      <span>🔍</span>
+
+      <input
+        type="text"
+        placeholder="Buscar por nome ou email..."
+        (input)="atualizarBusca($event)"
+      />
+    </div>
+
+    <span class="contador">
+      {{ usuariosFiltrados.length }} usuário(s) encontrado(s)
+    </span>
+  </section>
+
+  <section *ngIf="carregando" class="loading">
+    <div class="spinner"></div>
+    <p>Carregando usuários...</p>
+  </section>
+
+  <section *ngIf="erro && !carregando" class="erro">
+    <p>❌ {{ erro }}</p>
+
+    <button type="button" (click)="carregarUsuarios()">
+      Tentar novamente
+    </button>
+  </section>
+
+  <section
+    *ngIf="!carregando && !erro"
+    class="usuarios-grid"
+  >
+    <article
+      class="usuario-card"
+      *ngFor="let usuario of usuariosFiltrados"
+      [class.selecionado]="usuarioSelecionado?.id === usuario.id"
+      (click)="selecionarUsuario(usuario)"
+    >
+      <div
+        class="avatar"
+        [style.background-color]="getCorAvatar(usuario.id)"
+      >
+        {{ getIniciais(usuario.name) }}
+      </div>
+
+      <h3>{{ usuario.name }}</h3>
+
+      <p>📧 {{ usuario.email }}</p>
+      <p>📱 {{ usuario.phone }}</p>
+      <p>🌐 {{ usuario.website }}</p>
+
+      <span
+        class="id"
+        [style.background-color]="getCorAvatar(usuario.id)"
+      >
+        #{{ usuario.id }}
+      </span>
+    </article>
+
+    <div
+      class="sem-resultados"
+      *ngIf="usuariosFiltrados.length === 0 && usuarios.length > 0"
+    >
+      Nenhum usuário encontrado para "{{ termoBusca }}".
+    </div>
+  </section>
+
+  <section
+    *ngIf="usuarioSelecionado as usuarioDetalhe"
+    class="modal-overlay"
+    (click)="usuarioSelecionado = null"
+  >
+    <div class="modal" (click)="$event.stopPropagation()">
+      <button
+        type="button"
+        class="fechar"
+        (click)="usuarioSelecionado = null"
+      >
+        ×
+      </button>
+
+      <div
+        class="avatar grande"
+        [style.background-color]="getCorAvatar(usuarioDetalhe.id)"
+      >
+        {{ getIniciais(usuarioDetalhe.name) }}
+      </div>
+
+      <h2>{{ usuarioDetalhe.name }}</h2>
+
+      <div class="detalhes">
+        <p><strong>Email:</strong> {{ usuarioDetalhe.email }}</p>
+        <p><strong>Telefone:</strong> {{ usuarioDetalhe.phone }}</p>
+        <p><strong>Website:</strong> {{ usuarioDetalhe.website }}</p>
+        <p><strong>ID:</strong> #{{ usuarioDetalhe.id }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testes">
+    <h2>🧪 Testes com Karma e Jasmine</h2>
+
+    <div class="testes-grid">
+      <article>
+        <h3>Karma</h3>
+        <p>
+          É o executor de testes usado pelo Angular. Ele abre um navegador e
+          executa os testes criados no projeto.
+        </p>
+      </article>
+
+      <article>
+        <h3>Jasmine</h3>
+        <p>
+          É o framework de testes que fornece comandos como
+          <code>describe()</code>, <code>it()</code> e <code>expect()</code>.
+        </p>
+      </article>
+
+      <article>
+        <h3>Comando</h3>
+        <p>
+          Para rodar os testes da aplicação, use:
+        </p>
+
+        <pre><code>ng test</code></pre>
+      </article>
+    </div>
+  </section>
+</div>

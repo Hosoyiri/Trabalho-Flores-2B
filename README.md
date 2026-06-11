@@ -455,17 +455,16 @@ Possíveis melhorias para versões futuras:
 
 | Nome | RA |
 |---|---|
-| Nome do integrante 1 | RA |
-| Nome do integrante 2 | RA |
-| Nome do integrante 3 | RA |
-| Nome do integrante 4 | RA |
-| Nome do integrante 5 | RA |
+| Gabriel da Mota | 23130568-2 |
+| João Victor Bassolli | 25148816-2 |
+| Julia Leal Ferreira de Paula Nunes | 25013059-2 |
+| Leonardo Hosoyiri de Oliveira | 25013059-2 |
+| Reginaldo de Oliveira Ribeiro da Silva | 25061103-2 |
 
 **Instituição:** UniCesumar  
 **Curso:** Análise e Desenvolvimento de Sistemas  
 **Disciplina:** Programação Front-End  
-**Professor:** José Carlos Domingues Flores  
-**Semestre:** 2025  
+**Professor:** José Carlos Domingues Flores    
 
 ---
 
